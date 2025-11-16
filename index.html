@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chess Application</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-chess"></i> Chess Application</h1>
+        </header>
+        
+        <main>
+            <div class="game-container">
+                <div class="board-wrapper">
+                    <div id="chessboard"></div>
+                    <div class="coordinates">
+                        <div class="ranks">8<br>7<br>6<br>5<br>4<br>3<br>2<br>1</div>
+                        <div class="files">a&nbsp;b&nbsp;c&nbsp;d&nbsp;e&nbsp;f&nbsp;g&nbsp;h</div>
+                    </div>
+                </div>
+                
+                <div class="game-info">
+                    <div class="status-panel">
+                        <h3>Game Status</h3>
+                        <div id="game-status">White to move</div>
+                        <div id="timer">
+                            <div class="timer-white">
+                                <i class="fas fa-chess-pawn"></i>
+                                <span id="white-time">10:00</span>
+                            </div>
+                            <div class="timer-black">
+                                <i class="fas fa-chess-pawn"></i>
+                                <span id="black-time">10:00</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="controls">
+                        <button id="new-game-btn"><i class="fas fa-plus"></i> New Game</button>
+                        <button id="undo-btn"><i class="fas fa-undo"></i> Undo</button>
+                        <button id="flip-board-btn"><i class="fas fa-sync-alt"></i> Flip Board</button>
+                    </div>
+                    
+                    <div class="captured-pieces">
+                        <h4>Captured Pieces</h4>
+                        <div class="captured-white" id="captured-white"></div>
+                        <div class="captured-black" id="captured-black"></div>
+                    </div>
+                    
+                    <div class="move-history">
+                        <h4>Move History</h4>
+                        <div id="moves-list"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.11.0/chess.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

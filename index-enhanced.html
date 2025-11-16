@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chess Application - Enhanced</title>
+    <link rel="stylesheet" href="styles-enhanced.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <div class="header-content">
+                <h1><i class="fas fa-chess"></i> Chess Application</h1>
+                <div class="header-controls">
+                    <div id="connection-status" class="connection-status">Connecting...</div>
+                    <div id="user-info" class="user-info">
+                        <button onclick="chessGame.showLoginModal()" class="login-btn">Login</button>
+                        <button onclick="chessGame.showRegisterModal()" class="register-btn">Register</button>
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+        <nav class="game-mode-nav">
+            <button id="local-mode-btn" class="mode-btn active" onclick="chessGame.setGameMode('local')">
+                <i class="fas fa-users"></i> Local
+            </button>
+            <button id="ai-mode-btn" class="mode-btn" onclick="chessGame.setGameMode('ai')">
+                <i class="fas fa-robot"></i> AI
+            </button>
+            <button id="online-mode-btn" class="mode-btn" onclick="chessGame.setGameMode('online')">
+                <i class="fas fa-globe"></i> Online
+            </button>
+        </nav>
+        
+        <main class="main-content">
+            <div class="game-container">
+                <div class="board-section">
+                    <div class="board-wrapper">
+                        <div id="chessboard"></div>
+                        <div class="coordinates">
+                            <div class="ranks">8<br>7<br>6<br>5<br>4<br>3<br>2<br>1</div>
+                            <div class="files">a&nbsp;b&nbsp;c&nbsp;d&nbsp;e&nbsp;f&nbsp;g&nbsp;h</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="info-section">
+                    <div class="game-controls">
+                        <div class="status-panel">
+                            <h3>Game Status</h3>
+                            <div id="game-status">White to move</div>
+                            <div id="timer">
+                                <div class="timer-white">
+                                    <i class="fas fa-chess-pawn"></i>
+                                    <span id="white-time">10:00</span>
+                                </div>
+                                <div class="timer-black">
+                                    <i class="fas fa-chess-pawn"></i>
+                                    <span id="black-time">10:00</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="control-buttons">
+                            <button id="new-game-btn"><i class="fas fa-plus"></i> New Game</button>
+                            <button id="undo-btn"><i class="fas fa-undo"></i> Undo</button>
+                            <button id="flip-board-btn"><i class="fas fa-sync-alt"></i> Flip Board</button>
+                        </div>
+                        
+                        <div class="online-controls" style="display: none;">
+                            <button id="create-game-btn"><i class="fas fa-plus-circle"></i> Create Game</button>
+                            <button id="join-game-btn"><i class="fas fa-sign-in-alt"></i> Join Game</button>
+                        </div>
+                        
+                        <div class="ai-controls" style="display: none;">
+                            <label for="ai-difficulty">AI Difficulty:</label>
+                            <select id="ai-difficulty">
+                                <option value="easy">Easy</option>
+                                <option value="medium" selected>Medium</option>
+                                <option value="hard">Hard</option>
+                                <option value="expert">Expert</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="side-panels">
+                        <div class="captured-pieces">
+                            <h4>Captured Pieces</h4>
+                            <div class="captured-white" id="captured-white"></div>
+                            <div class="captured-black" id="captured-black"></div>
+                        </div>
+                        
+                        <div class="move-history">
+                            <h4>Move History</h4>
+                            <div id="moves-list"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <aside class="sidebar">
+                <div class="leaderboard">
+                    <h3><i class="fas fa-trophy"></i> Leaderboard</h3>
+                    <div id="leaderboard-list">
+                        <div class="leaderboard-item">
+                            <span class="rank">1</span>
+                            <span class="player">Magnus</span>
+                            <span class="rating">2847</span>
+                        </div>
+                        <div class="leaderboard-item">
+                            <span class="rank">2</span>
+                            <span class="player">Hikaru</span>
+                            <span class="rating">2792</span>
+                        </div>
+                        <div class="leaderboard-item">
+                            <span class="rank">3</span>
+                            <span class="player">Fabiano</span>
+                            <span class="rating">2786</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="active-games">
+                    <h3><i class="fas fa-gamepad"></i> Active Games</h3>
+                    <div id="active-games-list">
+                        <div class="game-item">
+                            <span class="game-id">ABC123</span>
+                            <span class="players">2/2</span>
+                            <button class="join-btn">Join</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="stats">
+                    <h3><i class="fas fa-chart-bar"></i> Statistics</h3>
+                    <div class="stat-item">
+                        <span class="stat-label">Total Games:</span>
+                        <span class="stat-value" id="total-games">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Active Users:</span>
+                        <span class="stat-value" id="active-users">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Your Rating:</span>
+                        <span class="stat-value" id="your-rating">-</span>
+                    </div>
+                </div>
+            </aside>
+        </main>
+    </div>
+    
+    <div class="modal-overlay" id="modal-overlay" style="display: none;"></div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.11.0/chess.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="ai-opponent.js"></script>
+    <script src="app-enhanced.js"></script>
+</body>
+</html>
