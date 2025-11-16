@@ -37,6 +37,7 @@ app.use((req, res, next) => {
         res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
         res.setHeader('Pragma', 'no-cache');
         res.setHeader('Expires', '0');
+        res.setHeader('Content-Type', req.path.endsWith('.css') ? 'text/css; charset=utf-8' : 'application/javascript; charset=utf-8');
     }
     next();
 });
