@@ -12,33 +12,31 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     
-    - name: Use Node.js 18.x
+    - name: Use Node.js 22.x
       uses: actions/setup-node@v3
       with:
-        node-version: 18.x
+        node-version: 22.x
         cache: 'npm'
     
     - name: Install dependencies
       run: npm ci
     
     - name: Run linting (skip if no lint script)
-      run: npm run lint || echo "Lint script not found, skipping..."
-      continue-on-error: true
+      run: npm run lint
 
   build:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
     
-    - name: Use Node.js 18.x
+    - name: Use Node.js 22.x
       uses: actions/setup-node@v3
       with:
-        node-version: 18.x
+        node-version: 22.x
         cache: 'npm'
     
     - name: Install dependencies
       run: npm ci
     
     - name: Build application (skip if no build script)
-      run: npm run build || echo "Build script not found, skipping..."
-      continue-on-error: true
+      run: npm run build
