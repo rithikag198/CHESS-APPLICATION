@@ -1,3 +1,15 @@
+/**
+ * Chess Application Backend Server
+ * 
+ * Developed as a full-stack demonstration project.
+ * This server handles API endpoints, WebSocket connections,
+ * authentication, and real-time multiplayer functionality.
+ * 
+ * Author: [Your Name]
+ * Created: [Current Date]
+ * Version: 1.0.0
+ */
+
 const express = require('express');
 const http = require('http');
 const socketIo = require('socket.io');
