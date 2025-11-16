@@ -14,7 +14,8 @@ describe('Chess Application Basic Tests', () => {
 
   test('should load chess.js library', () => {
     const Chess = require('chess.js');
-    expect(typeof Chess).toBe('function');
+    expect(typeof Chess).toBe('object');
+    expect(typeof Chess.Chess).toBe('function');
   });
 });
 
