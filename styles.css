@@ -5,7 +5,7 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Noto Sans', 'Segoe UI', 'Arial Unicode MS', 'Code2000', 'FreeSerif', 'Tahoma', Geneva, Verdana, sans-serif;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     min-height: 100vh;
     color: #333;
@@ -99,6 +99,11 @@ header h1 {
     user-select: none;
     z-index: 10;
     transition: transform 0.2s ease;
+    font-family: 'Noto Serif', 'Noto Sans', 'Arial Unicode MS', 'Code2000', 'FreeSerif', 'Segoe UI', sans-serif;
+    line-height: 1;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .piece:hover {
@@ -126,6 +131,11 @@ header h1 {
     flex-direction: column;
     justify-content: space-around;
     font-size: 14px;
+    font-family: 'Noto Sans', 'Segoe UI', 'Arial Unicode MS', 'Code2000', 'FreeSerif', 'Tahoma', Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .files {
@@ -136,6 +146,11 @@ header h1 {
     display: flex;
     justify-content: space-around;
     font-size: 14px;
+    font-family: 'Noto Sans', 'Segoe UI', 'Arial Unicode MS', 'Code2000', 'FreeSerif', 'Tahoma', Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .game-info {
@@ -224,6 +239,11 @@ header h1 {
     border-radius: 5px;
     margin-bottom: 10px;
     font-size: 24px;
+    font-family: 'Noto Serif', 'Noto Sans', 'Arial Unicode MS', 'Code2000', 'FreeSerif', 'Segoe UI', sans-serif;
+    line-height: 1;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 #moves-list {
